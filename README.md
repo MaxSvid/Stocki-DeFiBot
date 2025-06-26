@@ -1,10 +1,10 @@
-> [!WARNING]  
-> This bot is in development and currently a demo. Features and functionality may change.
-
 # Stock-DeFi-Telegram-Bot
 
 _Telegram bot for membership access to private DeFi group._
 [🔗 Link: Stock-DeFi Bot](https://t.me/geekonft)
+
+> [!WARNING]  
+> This bot is in development and currently a demo. Features and functionality may change.
 
 > [!IMPORTANT]
 > Make sure `.env` file contains these variables for pgadmin:
