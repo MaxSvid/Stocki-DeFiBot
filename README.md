@@ -1,7 +1,7 @@
 # Stock-DeFi-Telegram-Bot
 
 _Telegram bot for membership access to private DeFi group._
-[🔗 Link: Stock-DeFi Bot](https://t.me/geekonft)
+[🔗 Link: Stock-DeFi Bot](https://t.me/StockDeFi_bot)
 
 > [!WARNING]  
 > This bot is in development and currently a demo. Features and functionality may change.
