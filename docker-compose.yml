@@ -10,9 +10,9 @@ services:
     ports:
       - "5423:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U telegram_bot_tester -d bot_db"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
       timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 5s
     restart: unless-stopped
