@@ -1,7 +1,10 @@
 # Stocki-DeFi-Telegram-Bot
 
 _Telegram bot for membership access to private DeFi group._
-[🔗 Link: Stock-DeFi Bot](https://t.me/StockiDeFi_bot)
+[🔗 Link: Stocki-DeFi Bot](https://t.me/StockiDeFi_bot)
+
+_Telegram open blog channel._
+[🔗 Link: Stocki-DeFi Planet](https://t.me/)
 
 > [!WARNING]  
 > This bot is in development and currently a demo. Features and functionality may change.
