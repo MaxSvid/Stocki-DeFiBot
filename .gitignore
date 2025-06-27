@@ -2,3 +2,5 @@
 .venv/
 data/
 .pgadmin/
+__pycache__/
+*.pyc 
