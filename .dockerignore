@@ -5,6 +5,7 @@ pgadmin/
 .git
 .gitignore
 Dockerfile
+docker-compose.yml
 README.md
 __pycache__/
 *.pyc 
