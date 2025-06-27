@@ -1,4 +1,2 @@
-from dotenv import load_dotenv
-import os 
-
-load_dotenv()
+import os
+from bot.config import BOT_TOKEN
