@@ -17,3 +17,15 @@ services:
       start_period: 5s
     restart: unless-stopped
 
+# Pgadmin for database in bot
+
+pgadmin:
+  container_name: pgadmin_db_bot
+  image: dpage/pgadmin4:latest
+  env_file:
+    - .env
+  volumes:
+    - ./pgadmin:/var/lib/pgadmin
+  ports:
+    - "${PGADMIN_PORT_HOST}:80"  
+  restart: unless-stopped
