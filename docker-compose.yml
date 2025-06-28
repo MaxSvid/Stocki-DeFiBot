@@ -1,3 +1,5 @@
+
+# Database with init.sql file to create first table with service name postgres_bot_db 
 services:
   postgres_bot_db:
     container_name: db_bot_telegram
@@ -27,5 +29,7 @@ pgadmin:
   volumes:
     - ./pgadmin:/var/lib/pgadmin
   ports:
-    - "${PGADMIN_PORT_HOST}:80"  
+    - "${PGADMIN_PORT_HOST}:80"
   restart: unless-stopped
+
+# Needs also bot service and Dockerfile 

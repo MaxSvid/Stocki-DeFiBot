@@ -1,4 +1,4 @@
-# Configuration file with classes "Settings" and "DatabaseSettings"
+# Configuration file with classes "Settings" and "DatabaseSettings" for calls and connections 
 
 import os
 from dotenv import load_dotenv 

@@ -5,7 +5,7 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
 # from сonfig.py file 
-from config import settings  
+from bot.config import settings  
 
 # from keyboards.py
 from keyboards import main_menu, back_menu  
