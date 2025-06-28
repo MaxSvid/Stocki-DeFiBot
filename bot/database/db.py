@@ -1,5 +1,5 @@
-import psycopg
-from psycopg import OperationalError
+# import psycopg
+# from psycopg import OperationalError
 from dotenv import load_dotenv
 import os
 
