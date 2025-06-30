@@ -25,6 +25,10 @@ async def start(message: Message):
         reply_markup=main_menu()
     )
 
+# /help command
+@dp.message(Command("help"))
+
+
 # About callback
 @dp.callback_query(F.data == "about")
 async def about(callback: CallbackQuery):

@@ -13,3 +13,4 @@ assets/
 .env.example
 .flake
 guides.ipynb
+init_DB/
