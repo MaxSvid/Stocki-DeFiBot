@@ -4,10 +4,10 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
-# from сonfig.py file 
-from bot.config import settings  
+# from /bot сonfig.py file 
+from config import settings  
 
-# from keyboards.py
+# from /bot keyboards.py
 from keyboards import main_menu, back_menu  
 
 # Setup
@@ -26,8 +26,7 @@ async def start(message: Message):
     )
 
 # /help command
-@dp.message(Command("help"))
-
+# @dp.message(Command("help"))
 
 # About callback
 @dp.callback_query(F.data == "about")
@@ -35,9 +34,8 @@ async def about(callback: CallbackQuery):
     about_text = (
         "🤖 *Stocki DeFi AI* is currently in development — but you can already purchase early access by contacting our admin\\.\n\n"
         "Stocki is built to help you succeed in DeFi\\. Our AI Agent finds real opportunities, "
-        "enhances your trading decisions, and connects you with like\\-minded people — all in one place\\.\n\n"
+        "enhances your Liquidity or Yeilds decisions, and connects you with like\\-minded people — all in one place\\.\n\n"
         "It’s more than a tool — it’s your personal AI assistant that listens to what you need and gets things done for you\\. "
-        "Whether you're exploring DeFi for the first time or looking to gain an edge, Stocki is here to help you grow\\."
     )
 
     await callback.message.edit_text(
@@ -51,7 +49,7 @@ async def about(callback: CallbackQuery):
 @dp.callback_query(F.data == "channel")
 async def channel(callback: CallbackQuery):
     await callback.message.edit_text(
-        f"🪐 Check out Stocki DeFi channel for updates: {settings.REVIEWS_CHANNEL_LINK}",
+        f"🪐Stocki channel for news in DeFi: {settings.CHANNEL_LINK}",
         reply_markup=back_menu()
     )
     await callback.answer()
@@ -60,7 +58,7 @@ async def channel(callback: CallbackQuery):
 @dp.callback_query(F.data == "access")
 async def access(callback: CallbackQuery):
     await callback.message.edit_text(
-        f"🏄‍♂️ Want to get early access to your private chat with Stocki? \n\nContact our admin for more info: {settings.ADMIN_USERNAME}",
+        f"🏄‍♂️ Want early access to your private chat with Stocki DeFi? \n\nContact our admin for more info: {settings.ADMIN_USERNAME}",
         reply_markup=back_menu()
     )
     await callback.answer()

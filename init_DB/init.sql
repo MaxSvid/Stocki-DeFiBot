@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS payments;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     user_id BIGINT UNIQUE NOT NULL,
+    username TEXT,
     message_timestamp TIMESTAMP WITH TIME ZONE NOT NULL
 );
 

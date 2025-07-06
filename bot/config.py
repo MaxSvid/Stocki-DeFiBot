@@ -5,16 +5,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# from bot.config import settings
+# from config import settings
 
 class Settings:
     BOT_TOKEN = os.environ.get("BOT_TOKEN")
-    REVIEWS_CHANNEL_LINK = os.environ.get("REVIEWS_CHANNEL_LINK")
+    CHANNEL_LINK = os.environ.get("CHANNEL_LINK","@StockiDeFi_Agent")
     ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME")
 
 settings = Settings()
 
-# from bot.config import databaseSettings
+# from config import databaseSettings
 
 class DatabaseSettings:
     POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD") 
