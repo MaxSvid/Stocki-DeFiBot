@@ -1,6 +1,13 @@
+services:
+  tg_bot:
+    build: 
+      context: .
+    env_file:
+      - .env
+    depends_on:
+      - postgres_bot_db
 
 # Database with init.sql file to create first table with service name postgres_bot_db 
-services:
   postgres_bot_db:
     container_name: db_bot_telegram
     image: postgres:latest
