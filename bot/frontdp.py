@@ -10,6 +10,13 @@ from config import settings
 # from /bot keyboards.py
 from keyboards import main_menu, back_menu  
 
+# from /database execute_queries.py import execute_query
+from database.execute_queries import execute_query
+
+# SQL 
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 # Setup
 logging.basicConfig(level=logging.INFO)
 
@@ -24,6 +31,13 @@ async def start(message: Message):
         "👋 Welcome to Stocki DeFi AI Bot — we’re still developing!\n\nChoose an option below:",
         reply_markup=main_menu()
     )
+
+    timestamp_now = datetime.now(tz=ZoneInfo("UTC")).isoformat(sep=" ")
+
+    insert_query = f"""
+    INSERT INTO message (user_id, username, message_timestamp)
+    VALUES ({message.from_user.id}, '{message.from_user.username}', '{timestamp_now}');
+    """
 
 # /help command
 # @dp.message(Command("help"))

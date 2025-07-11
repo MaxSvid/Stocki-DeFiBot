@@ -5,7 +5,9 @@
 from psycopg import connect, OperationalError
 from bot.config import databaseSettings
 
+
 def create_connection():
+    connection = None 
     try:
         connection = connect(
             dbname=databaseSettings.POSTGRES_DB,
@@ -14,7 +16,9 @@ def create_connection():
             host=databaseSettings.POSTGRES_HOST,
             port=databaseSettings.POSTGRES_PORT_NUMBER
         )
-        return connection
+        print("Connection to PostgreSQL DB successful") 
     except OperationalError as e:
-        print(f"Can't connect to PostgreSQL server: {e}")    
+        print(f"Can't connect to PostgreSQL server: {e}")
+    
+    return connection    
 
