@@ -1,16 +1,60 @@
-.env
+# Python virtual environment
 .venv/
-data/
-pgadmin/
+
+# Environment files
+.env
+.env.example
+
+# Git files
 .git
 .gitignore
-Dockerfile
-docker-compose.yml
-README.md
+
+# Compiled Python files
 __pycache__/
-*.pyc 
+*.pyc
+*.pyo
+
+# Database / local data
+data/
+pgadmin/
+*.sqlite
+
+# Jupyter notebooks / docs
+*.ipynb
+docs.ipynb
+
+# Linting / editor configs
+.flake8
+.vscode/
+.idea/
+
+# Assets not needed in container
 assets/
-.env.example
-.flake
-guides.ipynb
-init_DB/
+
+# Docker / Compose files (not needed inside container)
+docker-compose.yml
+
+# README and other documentation files
+README.md
+
+# OS / system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs / runtime files
+*.log
+logs/
+
+# Test / development data
+tests/
+test_data/
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+
+# Secrets / sensitive files
+.env.local
+.aws/
+.ssh/

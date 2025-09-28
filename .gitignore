@@ -1,6 +1,21 @@
-.env
-.venv/
-data/
-.pgadmin/
+# Python
 __pycache__/
-*.pyc 
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Docker volumes in case for Bind Mounts
+data/
+pgadmin/
+
+# Git
+.git
+.gitignore

@@ -1,13 +1,19 @@
+version: '3.8'
+
 services:
-  tg_bot:
-    build: 
+  tg_bot_stocki:
+    build:
       context: .
+    container_name: bot_stocki
     env_file:
       - .env
+    environment:
+      - POSTGRES_HOST=postgres_bot_db
     depends_on:
       - postgres_bot_db
+    restart: unless-stopped
 
-# Database with init.sql file to create first table with service name postgres_bot_db 
+  # Database init.sql file to create first tables with service name postgres_bot_db
   postgres_bot_db:
     container_name: db_bot_telegram
     image: postgres:latest
@@ -15,9 +21,9 @@ services:
       - .env
     volumes:
       - ./init_DB:/docker-entrypoint-initdb.d
-      - ./data:/var/lib/postgresql/data
+      - postgres_bot_data:/var/lib/postgresql/data
     ports:
-      - "5423:5432"
+      - "5425:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
       interval: 5s
@@ -26,16 +32,18 @@ services:
       start_period: 5s
     restart: unless-stopped
 
-# Pgadmin for database in bot
+  pgadmin:
+    container_name: pgadmin_db_bot
+    image: dpage/pgadmin4:latest
+    env_file:
+      - .env
+    volumes:
+      - pgadmin_bot_data:/var/lib/pgadmin
+    ports:
+      - "${PGADMIN_PORT_HOST}:80"
+    restart: unless-stopped
 
-pgadmin:
-  container_name: pgadmin_db_bot
-  image: dpage/pgadmin4:latest
-  env_file:
-    - .env
-  volumes:
-    - ./pgadmin:/var/lib/pgadmin
-  ports:
-    - "${PGADMIN_PORT_HOST}:80"
-  restart: unless-stopped
-
+# Named volumes for data backups
+volumes:
+  postgres_bot_data:
+  pgadmin_bot_data:
