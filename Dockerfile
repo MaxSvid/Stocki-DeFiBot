@@ -1,4 +1,4 @@
-# Used light Python image
+# Python image
 FROM python:3.12-slim
 
 LABEL maintainer="Telegram bot: https://t.me/StockiDeFi_bot"
@@ -6,7 +6,7 @@ LABEL author="Max Svid"
 LABEL version="1.0"
 LABEL description="Tg bot for Stocki"
 
-# Create non-root user
+# Creating non-root user, good for Docker work
 ARG UID=1000
 ARG GID=1000
 ENV UID=${UID}
@@ -16,8 +16,8 @@ RUN useradd -m -u $UID docker_user
 
 USER docker_user
 
-# Set working directory to the bot folder 
-# In Linux it starts with /home 
+# Setting working directory to the bot folder 
+# We working with Linux so it starts with /home 
 WORKDIR /home/docker_user/app
 
 # Python settings
@@ -25,12 +25,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Copy and install dependencies
-# This file depends on docker-compose to copy .env 
+# This file depends on docker-compose to copy .env from
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-# Copy the project
+# Coping the full project together
 COPY . .
 
-# Run bot from the bot directory
+# Running bot from the bot directory with main.py file 
 CMD ["python3", "bot/main.py"]
